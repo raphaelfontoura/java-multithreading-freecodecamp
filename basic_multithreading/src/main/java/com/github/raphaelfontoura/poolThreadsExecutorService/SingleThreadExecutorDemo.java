@@ -6,12 +6,11 @@ import java.util.concurrent.Executors;
 public class SingleThreadExecutorDemo {
 
   public static void main(String[] args) {
-    ExecutorService service = Executors.newSingleThreadExecutor(); 
-    
-    for (int i = 0; i < 10; i++) {
-      service.execute(new Task(i));
+    try (ExecutorService service = Executors.newSingleThreadExecutor()) {
+      for (int i = 0; i < 10; i++) {
+        service.execute(new Task(i));
+      }
     }
-    service.shutdown();
     
   }
 

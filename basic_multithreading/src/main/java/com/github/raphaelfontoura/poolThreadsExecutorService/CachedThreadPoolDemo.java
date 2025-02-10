@@ -6,12 +6,12 @@ import java.util.concurrent.Executors;
 public class CachedThreadPoolDemo {
 
   public static void main(String[] args) {
-    ExecutorService service = Executors.newCachedThreadPool();
-
-    for (int i = 0; i < 1000; i++) {
-      service.execute(new TaskOne(i));
+    
+    try (ExecutorService service = Executors.newCachedThreadPool()) {
+      for (int i = 0; i < 1000; i++) {
+        service.execute(new TaskOne(i));
+      }
     }
-    service.shutdown();
   }
 }
 

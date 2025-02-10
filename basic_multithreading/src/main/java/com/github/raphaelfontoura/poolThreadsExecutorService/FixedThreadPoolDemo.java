@@ -6,12 +6,11 @@ import java.util.concurrent.Executors;
 public class FixedThreadPoolDemo {
 
   public static void main(String[] args) {
-    ExecutorService service = Executors.newFixedThreadPool(2);
-
-    for (int i = 0; i < 7; i++) {
-      service.execute(new Work(i));
+    try (ExecutorService service = Executors.newFixedThreadPool(2)) {
+      for (int i = 0; i < 7; i++) {
+        service.execute(new Work(i));
+      }
     }
-    service.shutdown();
   }
 
 }

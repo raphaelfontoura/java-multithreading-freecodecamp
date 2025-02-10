@@ -8,12 +8,11 @@ public class CpuIntensiveTask {
   public static void main(String[] args) {
     int cores = Runtime.getRuntime().availableProcessors();
     System.out.println("Number of cores: " + cores);
-    ExecutorService service = Executors.newFixedThreadPool(cores);
-
-    for (int i = 0; i < 20; i++) {
-      service.execute(new CpuTask());
+    try (ExecutorService service = Executors.newFixedThreadPool(cores)) {
+      for (int i = 0; i < 20; i++) {
+        service.execute(new CpuTask());
+      }
     }
-    service.shutdown();
   }
 }
 
