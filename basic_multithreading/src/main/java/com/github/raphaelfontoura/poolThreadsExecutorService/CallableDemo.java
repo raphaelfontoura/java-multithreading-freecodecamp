@@ -12,6 +12,11 @@ public class CallableDemo {
     try (ExecutorService service = Executors.newFixedThreadPool(2)) {
       Future<Integer> result = service.submit(new ReturnValueTask());
 
+      // result.cancel(true);
+
+      // boolean cancelled = result.isCancelled();
+      // boolean done = result.isDone();
+
       System.out.println(result.get(5, TimeUnit.SECONDS));
       System.out.println("Main thread execution completed");
     } catch (Exception e) {
