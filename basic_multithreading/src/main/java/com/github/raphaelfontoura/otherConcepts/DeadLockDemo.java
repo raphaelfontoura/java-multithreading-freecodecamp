@@ -1,4 +1,4 @@
-package com.github.raphaelfontoura.locks;
+package com.github.raphaelfontoura.otherConcepts;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;
