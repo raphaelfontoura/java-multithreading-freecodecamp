@@ -8,7 +8,7 @@ public class Scraper {
 
     public static void main(String[] args) {
         try(ExecutorService service = Executors.newCachedThreadPool()) {
-            for (int i = 0; i < 15; i++) {
+            for (int i = 0; i < 14; i++) {
                 service.execute(new Runnable() {
                     @Override
                     public void run() {
